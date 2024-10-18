@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbiting and Zooming Planets</title>
+    <style>
+        /* Основной контейнер для всей страницы */
+        body {
+            display: flex;
+            justify-content: space-between; /* Размещаем контент по бокам */
+            margin: 50px;
+        }
+
+        /* Контейнер для центральной планеты и спутников */
+        .planet-container {
+            position: relative;
+            width: 400px; /* Увеличил ширину контейнера для размещения орбит */
+            height: 400px;
+            margin-left: 20px; /* Отступ слева для расстояния между описанием и планетами */
+        }
+
+        /* Центральная пульсирующая планета */
+        .zoom-img {
+            position: absolute;
+            top: 120%;
+            left: -50%;
+            width: 150px;
+            height: 150px;
+            transform: translate(-50%, -50%);
+            text-align: center; /* Центрирование текста под планетой */
+        }
+
+        .zoom-img img {
+            width: 100%;
+            height: 100%;
+            animation: zoom 5s infinite ease-in-out;
+        }
+
+        /* Стиль для орбит */
+        .orbit {
+            position: absolute;
+            top: 80%;
+            left: -95%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+
+        /* Орбита 1 */
+        .orbit-1 {
+            width: 200px;
+            height: 200px;
+            animation: orbit-rotation-1 10s infinite linear;
+        }
+
+        /* Орбита 2 */
+        .orbit-2 {
+            width: 370px;
+            height: 370px;
+            animation: orbit-rotation-2 15s infinite linear reverse;
+        }
+
+        /* Орбита 3 */
+        .orbit-3 {
+            width: 520px;
+            height: 520px;
+            animation: orbit-rotation-3 20s infinite linear;
+        }
+
+        /* Планеты */
+        .planet {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            text-align: center;
+        }
+
+        .planet img {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Планета на первой орбите */
+        .planet-1 {
+            top: -40px; /* Чтобы планета начинала сверху орбиты */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Планета на второй орбите */
+        .planet-2 {
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Планета на третьей орбите */
+        .planet-3 {
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Описание планет */
+        .description {
+            position: relative;
+            width: 200px; /* Ширина описания */
+            padding: 10px;
+            font-size: 14px;
+            color: #333;
+            line-height: 1.4; /* Расстояние между строками */
+            background-color: #f0f0f0; /* Цвет фона для описания */
+            border-radius: 5px; /* Закругленные углы */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Тень для описания */
+        }
+
+        /* Анимации вращения для орбит */
+        @keyframes orbit-rotation-1 {
+            from {
+                transform: rotate(0deg) translate(-50%, -50%);
+            }
+            to {
+                transform: rotate(360deg) translate(-50%, -50%);
+            }
+        }
+
+        @keyframes orbit-rotation-2 {
+            from {
+                transform: rotate(0deg) translate(-50%, -50%);
+            }
+            to {
+                transform: rotate(-360deg) translate(-50%, -50%);
+            }
+        }
+
+        @keyframes orbit-rotation-3 {
+            from {
+                transform: rotate(0deg) translate(-50%, -50%);
+            }
+            to {
+                transform: rotate(360deg) translate(-50%, -50%);
+            }
+        }
+
+        /* Ключевые кадры для приближения и отдаления */
+        @keyframes zoom {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.5);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Контейнер для описаний планет -->
+    <div class="description-container">
+        <div class="description">
+            <p><strong>Sun</strong></p>
+            <p>The star at the center of our solar system, providing light and heat to the planets.</p>
+        </div>
+        <div class="description">
+            <p><strong>Earth</strong></p>
+            <p>Our home planet, known for its vast oceans and diverse ecosystems.</p>
+        </div>
+        <div class="description">
+            <p><strong>Venus</strong></p>
+            <p>Second planet from the Sun, known for its thick atmosphere and high temperatures.</p>
+        </div>
+        <div class="description">
+            <p><strong>Neptune</strong></p>
+            <p>The eighth planet, known for its deep blue color and strong winds.</p>
+        </div>
+    </div>
+
+    <!-- Контейнер для всех планет -->
+    <div class="planet-container">
+
+        <!-- Центральная пульсирующая планета -->
+        <div class="zoom-img">
+            <img src="C:/Users/agraz/Desktop/solniwko.jpg" alt="Zooming Planet">
+        </div>
+
+        <!-- Первая орбита с планетой -->
+        <div class="orbit orbit-1">
+            <div class="planet planet-1">
+                <img src="C:/Users/agraz/Desktop/zemlja.png" alt="Rotating Planet 1">
+            </div>
+        </div>
+
+        <!-- Вторая орбита с планетой -->
+        <div class="orbit orbit-2">
+            <div class="planet planet-2">
+                <img src="C:/Users/agraz/Desktop/venera.png" alt="Rotating Planet 2">
+            </div>
+        </div>
+
+        <!-- Третья орбита с планетой -->
+        <div class="orbit orbit-3">
+            <div class="planet planet-3">
+                <img src="C:/Users/agraz/Desktop/neptun.jpg" alt="Rotating Planet 3">
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+
